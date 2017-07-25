@@ -14,7 +14,7 @@ CON=$?
 
 if [ $CON -eq 0 ]; then
     # If Yes, get the latest available comic's name
-    LATEST_IMG=`curl -k $URL 2>/dev/null | perl -n -e '/https:\/\/(.+).png/ && print $1' | cut -d / -f 3`
+    LATEST_IMG=`curl -k $URL 2>/dev/null | perl -n -e '/https:\/\/.*\/comics\/(.+).png/ && print $1'`
 else
     LATEST_IMG=$CURRENT_IMG
 fi
